@@ -20,6 +20,7 @@ import myservice.Myservice;
 public class MyController {
 
 	//this is just a comment
+	//test
 	@Autowired
 	Myservice service;
 	

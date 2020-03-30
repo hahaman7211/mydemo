@@ -3,13 +3,19 @@ package mycontroller;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
 import mymodel.Employee;
 import mymodel.User;
 import myservice.Myservice;
@@ -19,7 +25,6 @@ import myservice.Myservice;
 @SessionAttributes("loginEmlp") //this loginEmlp has an unencoded password
 public class MyController {
 
-	
 	@Autowired
 	Myservice service;
 	
@@ -128,6 +133,19 @@ public class MyController {
 	public String deleteCustomer(@RequestParam("uid") int theid) {
 		service.deleteCustomer(theid);
 		return "redirect:/homepage/dolist";
+	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpSession session, SessionStatus status) {
+		if(session.getAttribute("loginEmlp")!=null) {
+			
+			//SessionStatus has to set Complete before removeAttribute
+			status.setComplete();
+			//session.invalidate();
+			session.removeAttribute("loginEmlp");	
+		}
+		
+		return "redirect:/homepage/gohomepage";
 	}
 
 }

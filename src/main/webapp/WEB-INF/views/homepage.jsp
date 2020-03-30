@@ -37,6 +37,9 @@
 	onclick="window.location.href='dolist';return false" />
 <br>
 <br>
+<input type="button" value="logout"
+	onclick="window.location.href='logout';return false" />
+
 
 
 

@@ -16,6 +16,7 @@ import mymodel.Employee;
 import mymodel.User;
 import myservice.Myservice;
 
+//change my previous comment for testing
 @Controller
 @RequestMapping("/homepage")
 @SessionAttributes("loginEmlp") //this loginEmlp has an unencoded password

@@ -58,7 +58,10 @@
 		</div>
 	</div>
 
-<a href="/mydemo/secController">sec controller</a>
+<input type="button" value="logout" 
+	onclick="window.location.href='logout'; return false"/><br><br>
+
+<a href="gohomepage">Homepage</a>
 
 
 

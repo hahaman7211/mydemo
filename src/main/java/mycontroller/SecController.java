@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class SecController {
 	
+	//for testing
 	@RequestMapping("/secController")
 	public String newPage() {
 		System.out.println("page4");
